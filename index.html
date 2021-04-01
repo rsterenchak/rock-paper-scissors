@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE TITLE OF YOUR WEBPAGE</title>
+    <link rel="stylesheet" href="css/_globals.css">
+</head>
+<!-- The DOM -->
+<body>
+    <h1>
+      THE TITLE OF YOUR WEBPAGE
+    </h1>
+    <div id="container">
+        <div class="content">
+        This is the glorious text-content!
+      </div>
+    </div>
+
+<script>
+
+const container = document.querySelector('#container');
+
+const para = document.createElement('p');
+para.classList.add('para');
+para.textContent = "Hey I'm red!";
+container.appendChild(para);
+    
+
+const header3 = document.createElement('h3');
+header3.classList.add('header3');
+header3.textContent = ("I'm a blue h3!");
+
+container.appendChild(header3);
+
+ 
+const div1 = document.createElement('div');
+div1.classList.add('div1');
+div1.style.backgroundColor = 'pink';
+div1.style.border = "thick, solid, #FFFFFF";
+
+const header1 = document.createElement('h1');
+header1.classList.add('header1');
+header1.textContent = "I'm in a div";
+
+const para2 = document.createElement('p');
+para2.classList.add('para2');
+para2.textContent = "ME TOO!";
+
+
+div1.appendChild(header1);
+div1.appendChild(para2);
+
+
+container.appendChild(div1);
+
+
+
+
+
+
+</script>
+
+  </body>
+</html>
+
+
+
+
+<!-- <script src="app/js/script.js"></script> ->
