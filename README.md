@@ -1,0 +1,1 @@
+"This is a project created based on requirements by 'The Odin Project' website. This is a recreation of the rock, paper, and scissors game through implmentation of Javascript."
