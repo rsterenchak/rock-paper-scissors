@@ -24,6 +24,7 @@ function playRound(playerSelection, computerSelection){
   playerSelection = playerSelection.toLowerCase();
   computerSelection = computerSelection.toLowerCase();
 
+
   let result;
 
 
@@ -32,6 +33,7 @@ function playRound(playerSelection, computerSelection){
     result = "It's a tie...";
 
   }
+
   if((playerSelection == 'rock') && (computerSelection == 'paper')){
 
     result = "You Lose! Paper beats Rock";
@@ -72,6 +74,13 @@ function playRound(playerSelection, computerSelection){
     result = "It's a tie...";    
 
   }
+
+  if((playerSelection != (('scissors') || ('paper') || ('rock')) )){
+
+    result = "Incorrect Input!";
+
+  }
+  
 
     return result;
 }
