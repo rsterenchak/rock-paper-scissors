@@ -6,19 +6,41 @@
     <title>Rock_Paper_Scissors</title>
     <link rel="stylesheet" href="css/_globals.css">
 </head>
+
 <!-- The DOM -->
 <body>
+
+<h1>Beat the MACHINE!</h1>
+
+
+<div class="game_selection">
+
+  <button id="rock_button"><img src="images/rock.png" style="height: 50px; width: 50px;"></button>
+  <button id="paper_button"><img src="images/paper.png" style="height: 50px; width: 50px;"></button>
+  <button id="scissors_button"><img src="images/Scissors.png" style="height: 50px; width: 50px;"></button>
+
+
+</div>
+
+
+
 <script>
 
-let playerSelection = 'rock';
+let playerSelection;
 
-let computerSelection = 'scissors';
+let computerSelection;
 
-console.log(playRound(playerSelection, computerSelection));
+let selections = ["rock","paper","scissors"];
 
-console.log(game());
+
+
 
 function playRound(playerSelection, computerSelection){
+
+
+  console.log('Play Round Started!');
+  console.log(playerSelection);
+  console.log(computerSelection);
 
 
   playerSelection = playerSelection.toLowerCase();
@@ -74,32 +96,63 @@ function playRound(playerSelection, computerSelection){
     result = "It's a tie...";    
 
   }
-
-  if((playerSelection != (('scissors') || ('paper') || ('rock')) )){
-
-    result = "Incorrect Input!";
-
-  }
   
-
-    return result;
+    return console.log(result);
+    //return result;
 }
+
+// place playerSelection button listener here?
+document.getElementById("rock_button").addEventListener("click", function(){
+playerSelection = 'rock';
+
+let choice = Math.floor((Math.random() * 3));
+
+computerSelection = selections[choice]; // need to set to random value based on array
+
+playRound(playerSelection,computerSelection);
+
+});
+
+document.getElementById("paper_button").addEventListener("click", function(){
+playerSelection = 'paper';
+
+let choice = Math.floor((Math.random() * 3));
+
+computerSelection = selections[choice]; // need to set to random value based on array
+
+playRound(playerSelection,computerSelection);
+
+});
+
+document.getElementById("scissors_button").addEventListener("click", function(){
+playerSelection = 'scissors';
+
+let choice = Math.floor((Math.random() * 3));
+
+computerSelection = selections[choice]; // need to set to random value based on array
+
+playRound(playerSelection,computerSelection);
+
+});
 
 function game(){
 
-  let computer = 0;
-  let player = 0;
+let computer = 0;
+let player = 0;
 
-  let result;
-  let i = 0;
+let result;
+let i = 0;
 
-  while(i < 5){
+while(i < 5){
+  
+  //playerSelection = window.prompt("Rock, Paper, or Scissors?");
+
+  //new playerSelection Value must be ready for playRound function
+
+  if(playerSelection != null){
     
-    playerSelection = window.prompt("Rock, Paper, or Scissors?");
-
-
-    result = playRound(playerSelection, computerSelection);
-
+      result = playRound(playerSelection, computerSelection);
+    
     if((result.charAt(4)) == 'W'){
 
       player++;
@@ -119,23 +172,30 @@ function game(){
     
     i++;
 
-  }
+  }//ends after player versus computer calculation
 
-   if(player > computer){
+  playerSelection = null;
+
+}//ends while user prompt loop
+
+  if(player > computer){
 
     return "Player Wins!";
 
-   } 
+  } 
 
-   if(computer > player){
+  if(computer > player){
 
     return "Computer Wins!";
 
-   }
+  }
   
-   return "It's a TIE!";
+  return "It's a TIE!";
 
 }
+
+
+
 
 </script>
 
