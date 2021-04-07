@@ -23,7 +23,7 @@
 <div class="digits">
 
   <p id="human_digit">0</p>
-  <p id="versus"></p>
+  <p id="versus_digit"></p>
   <p id="machine_digit">0</p>
 
 </div>
@@ -73,7 +73,7 @@ function playRound(playerSelection, computerSelection){
 
 
   let result;
-
+  let versus = 'TIED';
 
   if((playerSelection == 'rock') && (computerSelection == 'rock')){
 
@@ -86,18 +86,21 @@ function playRound(playerSelection, computerSelection){
     result = "You Lose! Paper beats Rock";
     computer++;
 
+    versus= 'LOST :(';
   }
   if((playerSelection == 'rock') && (computerSelection == 'scissors')){
 
     result = "You Win! Rock beats Scissors";
     human++;
 
+    versus= 'WON :)';
   }
   if((playerSelection == 'paper') && (computerSelection == 'rock')){
 
     result = "You Win! Paper beats Rock";
     human++;
 
+    versus= 'WON :)';
 }
   if((playerSelection == 'paper') && (computerSelection == 'paper')){
 
@@ -109,18 +112,21 @@ function playRound(playerSelection, computerSelection){
     result = "You Lose! Scissors beats Paper";
     computer++;
 
+    versus= 'LOST :(';
   }
   if((playerSelection == 'scissors') && (computerSelection == 'rock')){
 
     result = "You Lose! Rock beats Scissors";
     computer++;
 
+    versus= 'LOST :(';
   }
   if((playerSelection == 'scissors') && (computerSelection == 'paper')){
 
     result = "You Win! Scissors beats Paper";
     human++;
 
+    versus= 'WON :)';
   }
   if((playerSelection == 'scissors') && (computerSelection == 'scissors')){
 
@@ -130,24 +136,26 @@ function playRound(playerSelection, computerSelection){
   
     document.getElementById("human_digit").innerHTML = human;
     document.getElementById("machine_digit").innerHTML = computer;
+    document.getElementById("versus_digit").innerHTML = versus;
+
 
     if(human == 5){
 
       // change heading to announce human as winner
+      document.querySelector('h1').innerHTML = 'HUMANS RULE';
 
     }
 
     else if(computer == 5){
 
       // change heading to announce computer as winner
+      document.querySelector('h1').innerHTML = 'HUMANS DROOL';
 
     }
-
-    else{
 
       return console.log(result + ' - Human: ' + human + ' - Machine: ' + computer);
     
-    }
+    
 }
 
 document.getElementById("rock_button").addEventListener("click", function(){
