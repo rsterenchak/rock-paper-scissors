@@ -1,6 +1,12 @@
 html    {
-    font-size: 100%;
-    box-sizing: border-box;
+    
+}
+
+
+h1  {
+    font-size: 80px;
+    text-align: center;
+    height: 130px;
 }
 
 body    {
@@ -13,24 +19,104 @@ body    {
 
 }
 
+.count{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 0px;
+    padding: 50px;
+
+}
+
+.digits{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 0px;
+    padding: 50px;
+
+}
 
 .game_selection{
 
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 50px;
-    align-items: stretch;
+    padding-top: 50px;
+    
+}
+
+p   {
+
+    text-align: center;
+
+}
+
+#human{
+
+    
+    font-size: 20px;
+
+}
+
+#versus{
+
+    
+    font-size: 20px;
+
+}
+
+#machine{
+
+    
+    font-size: 20px;
+
+}
+
+#human_digit{
+
+    
+    font-size: 20px;
+
+}
+
+#machine_digit{
+
+    
+    font-size: 20px;
+
 }
 
 #rock_button {
-
+    
+    height: 150px;
+    width: 150px;
 }
 
 #paper_button {
-
+    height: 150px;
+    width: 150px;
 }
 
 #scissors_button {
+    height: 150px;
+    width: 150px;
+}
+
+#rock{
+    text-align: center;
+    
 
 }
 
+#paper{
+    text-align: center;
+    
 
+}
+
+#scissors{
+    text-align: center;
+    
+
+}

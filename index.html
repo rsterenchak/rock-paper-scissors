@@ -2,28 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Rock_Paper_Scissors</title>
-    <link rel="stylesheet" href="css/_globals.css">
+    <link rel="stylesheet" href="/app/css/_globals.css">
 </head>
 
-<!-- The DOM -->
 <body>
 
 <h1>Beat the MACHINE!</h1>
 
+<div class="count">
 
-<div class="game_selection">
-
-  <button id="rock_button"><img src="images/rock.png" style="height: 50px; width: 50px;"></button>
-  <button id="paper_button"><img src="images/paper.png" style="height: 50px; width: 50px;"></button>
-  <button id="scissors_button"><img src="images/Scissors.png" style="height: 50px; width: 50px;"></button>
+  <p id="human" style="text-decoration: underline;">Human</p>
+  <p id="versus">VS</p>
+  <p id="machine" style="text-decoration: underline;">MACHINE</p>
 
 
 </div>
 
+<div class="digits">
+
+  <p id="human_digit">0</p>
+  <p id="versus"></p>
+  <p id="machine_digit">0</p>
+
+</div>
 
 
+<div class="game_selection">
+
+  <div id="rock">
+    <button id="rock_button"><img src="images/rock.png" style="height: 50px; width: 50px;"></button>
+  </div>
+
+  <div id="paper">
+    <button id="paper_button"><img src="images/paper.png" style="height: 50px; width: 50px;"></button>
+  </div>
+
+  <div id="scissors">
+    <button id="scissors_button"><img src="images/Scissors.png" style="height: 50px; width: 50px;"></button>  
+  </div>
+
+</div>
+
+
+<!-- Javascript Portion -->
 <script>
 
 let playerSelection;
@@ -32,7 +55,9 @@ let computerSelection;
 
 let selections = ["rock","paper","scissors"];
 
+let human = 0;
 
+let computer = 0;
 
 
 function playRound(playerSelection, computerSelection){
@@ -59,16 +84,19 @@ function playRound(playerSelection, computerSelection){
   if((playerSelection == 'rock') && (computerSelection == 'paper')){
 
     result = "You Lose! Paper beats Rock";
-    
+    computer++;
+
   }
   if((playerSelection == 'rock') && (computerSelection == 'scissors')){
 
     result = "You Win! Rock beats Scissors";
+    human++;
 
   }
   if((playerSelection == 'paper') && (computerSelection == 'rock')){
 
     result = "You Win! Paper beats Rock";
+    human++;
 
 }
   if((playerSelection == 'paper') && (computerSelection == 'paper')){
@@ -79,16 +107,19 @@ function playRound(playerSelection, computerSelection){
   if((playerSelection == 'paper') && (computerSelection == 'scissors')){
 
     result = "You Lose! Scissors beats Paper";
+    computer++;
 
   }
   if((playerSelection == 'scissors') && (computerSelection == 'rock')){
 
     result = "You Lose! Rock beats Scissors";
+    computer++;
 
   }
   if((playerSelection == 'scissors') && (computerSelection == 'paper')){
 
     result = "You Win! Scissors beats Paper";
+    human++;
 
   }
   if((playerSelection == 'scissors') && (computerSelection == 'scissors')){
@@ -97,41 +128,58 @@ function playRound(playerSelection, computerSelection){
 
   }
   
-    return console.log(result);
-    //return result;
+    document.getElementById("human_digit").innerHTML = human;
+    document.getElementById("machine_digit").innerHTML = computer;
+
+    if(human == 5){
+
+      // change heading to announce human as winner
+
+    }
+
+    else if(computer == 5){
+
+      // change heading to announce computer as winner
+
+    }
+
+    else{
+
+      return console.log(result + ' - Human: ' + human + ' - Machine: ' + computer);
+    
+    }
 }
 
-// place playerSelection button listener here?
 document.getElementById("rock_button").addEventListener("click", function(){
-playerSelection = 'rock';
+  playerSelection = 'rock';
 
-let choice = Math.floor((Math.random() * 3));
+  let choice = Math.floor((Math.random() * 3));
 
-computerSelection = selections[choice]; // need to set to random value based on array
+  computerSelection = selections[choice]; // need to set to random value based on array
 
-playRound(playerSelection,computerSelection);
+  playRound(playerSelection,computerSelection);
 
 });
 
 document.getElementById("paper_button").addEventListener("click", function(){
-playerSelection = 'paper';
+  playerSelection = 'paper';
 
-let choice = Math.floor((Math.random() * 3));
+  let choice = Math.floor((Math.random() * 3));
 
-computerSelection = selections[choice]; // need to set to random value based on array
+  computerSelection = selections[choice]; // need to set to random value based on array
 
-playRound(playerSelection,computerSelection);
+  playRound(playerSelection,computerSelection);
 
 });
 
 document.getElementById("scissors_button").addEventListener("click", function(){
-playerSelection = 'scissors';
+  playerSelection = 'scissors';
 
-let choice = Math.floor((Math.random() * 3));
+  let choice = Math.floor((Math.random() * 3));
 
-computerSelection = selections[choice]; // need to set to random value based on array
+  computerSelection = selections[choice]; // need to set to random value based on array
 
-playRound(playerSelection,computerSelection);
+  playRound(playerSelection,computerSelection);
 
 });
 
@@ -145,10 +193,6 @@ let i = 0;
 
 while(i < 5){
   
-  //playerSelection = window.prompt("Rock, Paper, or Scissors?");
-
-  //new playerSelection Value must be ready for playRound function
-
   if(playerSelection != null){
     
       result = playRound(playerSelection, computerSelection);
@@ -200,6 +244,8 @@ while(i < 5){
 </script>
 
   </body>
+
+
 </html>
 
 
