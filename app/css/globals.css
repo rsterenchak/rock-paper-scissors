@@ -4,7 +4,7 @@ html    {
 
 
 h1  {
-    font-size: 80px;
+    font-size: 60px;
     text-align: center;
     height: 130px;
 }
@@ -23,18 +23,15 @@ body    {
 
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    height: 0px;
-    padding: 50px;
-
+    padding: 5px;
 }
 
 .digits{
 
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    height: 0px;
+    display: flex;
     padding: 50px;
-
+    justify-content: space-around;
+    padding: 5px;
 }
 
 .game_selection{
@@ -76,54 +73,50 @@ p   {
 #human_digit{
 
     
-    font-size: 20px;
+    font-size: 70px;
 
 }
 
 #versus_digit{
 
     
-    font-size: 20px;
+    font-size: 30px;
 
 }
 
 #machine_digit{
 
     
-    font-size: 20px;
+    font-size: 70px;
 
 }
 
 #rock_button {
-    
-    height: 150px;
-    width: 150px;
+    height: 90px;
+    width: 100px;
 }
 
 #paper_button {
-    height: 150px;
-    width: 150px;
+    height: 90px;
+    width: 100px;
 }
 
 #scissors_button {
-    height: 150px;
-    width: 150px;
+    height: 90px;
+    width: 100px;
 }
 
 #rock{
     text-align: center;
     
-
 }
 
 #paper{
     text-align: center;
     
-
 }
 
 #scissors{
     text-align: center;
     
-
 }
