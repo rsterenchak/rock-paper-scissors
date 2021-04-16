@@ -1,5 +1,3 @@
-
-
 let playerSelection;
 
 let computerSelection;
